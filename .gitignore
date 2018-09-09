@@ -5,3 +5,4 @@
 *.iml
 /.idea/
 *.class
+kugou-web/target/
