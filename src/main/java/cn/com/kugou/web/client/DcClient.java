@@ -13,5 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface DcClient {
 
     @GetMapping("/user")
-    String consumer();
+    String user();
+
+    @GetMapping("/email/email")
+    String email();
 }
