@@ -1,6 +1,7 @@
 package cn.com.kugou.web.controller;
 
 import cn.com.kugou.web.client.DcClient;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -30,10 +31,15 @@ public class UserController {
 
     @GetMapping("/user")
     @ApiOperation(value="获取用户信息", notes="用户")
+    @HystrixCommand
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long"),
     })
     public String user(@ApiIgnore Long id) {
+        if(id % 2 ==0){
+            return "success";
+        }
+
         return dcClient.user();
     }
 }

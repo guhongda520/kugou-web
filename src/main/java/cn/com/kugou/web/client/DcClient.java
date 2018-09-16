@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @details
  * @date 2018/9/5
  */
-@FeignClient("kugou-provider")
+@FeignClient(value = "kugou-provider", fallback = DcClientFallback.class)
 public interface DcClient {
 
     @GetMapping("/user")
