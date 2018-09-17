@@ -15,6 +15,11 @@ public interface DcClient {
     @GetMapping("/user")
     String user();
 
-    @GetMapping("/email/email")
+    @GetMapping("/email")
     String email();
+
+    @GetMapping("/rabbitTest")
+    String rabbitTest();
+
+
 }
