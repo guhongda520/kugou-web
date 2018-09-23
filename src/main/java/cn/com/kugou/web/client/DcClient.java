@@ -2,6 +2,7 @@ package cn.com.kugou.web.client;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author 黄尚
@@ -12,13 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "kugou-provider", fallback = DcClientFallback.class)
 public interface DcClient {
 
-    @GetMapping("/user")
-    String user();
+    @GetMapping("/user/user")
+    String user(@RequestParam("id")Long id);
 
-    @GetMapping("/email")
+    @GetMapping("/email/email")
     String email();
 
-    @GetMapping("/rabbitTest")
+    @GetMapping("/rabbit/rabbitTest")
     String rabbitTest();
 
 
