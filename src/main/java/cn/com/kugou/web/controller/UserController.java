@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import springfox.documentation.annotations.ApiIgnore;
 
+import java.util.List;
+
 /**
  * @author 黄尚
  * @brief
@@ -31,15 +33,11 @@ public class UserController {
 
     @GetMapping("/user")
     @ApiOperation(value="获取用户信息", notes="用户")
-    @HystrixCommand
+//    @HystrixCommand
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long" , paramType= "query"),
     })
     public String user(@ApiIgnore Long id) {
-        if(id % 2 ==0){
-            return "success";
-        }
-
-        return dcClient.user();
+        return dcClient.user(id);
     }
 }

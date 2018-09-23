@@ -7,9 +7,10 @@ import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
-@EnableFeignClients(basePackages = {"cn.com.kugou.web.client**"})
+@EnableFeignClients(basePackages = {"cn.com.kugou.web**"})
 //@EnableDiscoveryClient
 //@SpringBootApplication
+//@EnableCircuitBreaker
 @SpringCloudApplication
 public class WebApplication {
 
